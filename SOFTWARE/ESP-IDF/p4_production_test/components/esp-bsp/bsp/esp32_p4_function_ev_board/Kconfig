@@ -156,6 +156,10 @@ menu "Board Support Package (ESP32-P4)"
                 bool "1280x800@60HZ"
             config BSP_LCD_HDMI_1920x1080_30HZ
                 bool "1920x1080@30HZ"
+
+            config BSP_LCD_HDMI_1920x515_60HZ
+                bool "1920x515@60HZ (NV126B5M-N42)"
+
         endchoice          
         
     endmenu
