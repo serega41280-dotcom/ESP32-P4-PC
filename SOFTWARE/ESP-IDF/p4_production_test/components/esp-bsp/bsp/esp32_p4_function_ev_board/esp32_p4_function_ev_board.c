@@ -903,6 +903,12 @@ static lv_display_t *bsp_display_lcd_init(const bsp_display_cfg_t *cfg)
         display_hres = 1920;
         display_vres = 1080;
         break;
+        
+    case BSP_HDMI_RES_1920x515:
+        display_hres = 1920;
+        display_vres = 515;
+        break;
+
     default:
         ESP_LOGE(TAG, "Unsupported HDMI resolution");
     }
