@@ -70,9 +70,12 @@ typedef enum {
     BSP_HDMI_RES_800x600,   /*!< 800x600@60HZ   */
     BSP_HDMI_RES_1024x768,  /*!< 1024x768@60HZ  */
     BSP_HDMI_RES_1280x720,  /*!< 1280x720@60HZ  */
-    BSP_HDMI_RES_1280x800,  /*!< 1280x800@60HZ  */
-    BSP_HDMI_RES_1920x1080  /*!< 1920x1080@30HZ */
+
+    BSP_HDMI_RES_1280x800,   /*!< 1280x800@60HZ  */
+    BSP_HDMI_RES_1920x1080,  /*!< 1920x1080@30HZ */
+    BSP_HDMI_RES_1920x515    /*!< 1920x515@60HZ  */
 } bsp_hdmi_resolution_t;
+
 
 /**
  * @brief BSP display configuration structure
