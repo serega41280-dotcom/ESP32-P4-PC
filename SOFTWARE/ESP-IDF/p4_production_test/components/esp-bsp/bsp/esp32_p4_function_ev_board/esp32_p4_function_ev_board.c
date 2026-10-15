@@ -694,7 +694,8 @@ esp_err_t bsp_display_new_with_handles(const bsp_display_config_t *config, bsp_l
         LT8912B_1024x768_PANEL_60HZ_DPI_CONFIG_WITH_FBS(CONFIG_BSP_LCD_DPI_BUFFER_NUMS),
         LT8912B_1280x720_PANEL_60HZ_DPI_CONFIG_WITH_FBS(CONFIG_BSP_LCD_DPI_BUFFER_NUMS),
         LT8912B_1280x800_PANEL_60HZ_DPI_CONFIG_WITH_FBS(CONFIG_BSP_LCD_DPI_BUFFER_NUMS),
-        LT8912B_1920x1080_PANEL_30HZ_DPI_CONFIG_WITH_FBS(CONFIG_BSP_LCD_DPI_BUFFER_NUMS)
+        LT8912B_1920x1080_PANEL_30HZ_DPI_CONFIG_WITH_FBS(CONFIG_BSP_LCD_DPI_BUFFER_NUMS),
+        LT8912B_1920x515_PANEL_60HZ_DPI_CONFIG_WITH_FBS(CONFIG_BSP_LCD_DPI_BUFFER_NUMS),
     };
 
 #if CONFIG_BSP_LCD_USE_DMA2D && (ESP_IDF_VERSION < ESP_IDF_VERSION_VAL(6, 0, 0))
@@ -708,7 +709,8 @@ esp_err_t bsp_display_new_with_handles(const bsp_display_config_t *config, bsp_l
         ESP_LCD_LT8912B_VIDEO_TIMING_1024x768_60Hz(),
         ESP_LCD_LT8912B_VIDEO_TIMING_1280x720_60Hz(),
         ESP_LCD_LT8912B_VIDEO_TIMING_1280x800_60Hz(),
-        ESP_LCD_LT8912B_VIDEO_TIMING_1920x1080_30Hz()
+        ESP_LCD_LT8912B_VIDEO_TIMING_1920x1080_30Hz(),
+        ESP_LCD_LT8912B_VIDEO_TIMING_1920x515_60HZ(),
     };
     lt8912b_vendor_config_t vendor_config = {
         .mipi_config = {
@@ -744,7 +746,8 @@ esp_err_t bsp_display_new_with_handles(const bsp_display_config_t *config, bsp_l
         vendor_config.mipi_config.dpi_config = &dpi_configs[4];
         memcpy(&vendor_config.video_timing, &video_timings[4], sizeof(esp_lcd_panel_lt8912b_video_timing_t));
         break;
-    default:
+
+        default:
         ESP_LOGE(TAG, "Unsupported display type (%d)", config->hdmi_resolution);
     }
 
