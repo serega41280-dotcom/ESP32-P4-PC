@@ -397,6 +397,29 @@ bool esp_lcd_panel_lt8912b_is_ready(esp_lcd_panel_t *panel);
     }
 
 
+/* Experimental 1920x515@60Hz timing */
+#define LT8912B_1920x515_PANEL_60HZ_DPI_CONFIG() \
+    LT8912B_1920x515_PANEL_60HZ_DPI_CONFIG_WITH_FBS(1)
+
+#define LT8912B_1920x515_PANEL_60HZ_DPI_CONFIG_WITH_FBS(NUM_FBS) \
+    { \
+        .dpi_clk_src = MIPI_DSI_DPI_CLK_SRC_DEFAULT, \
+        .dpi_clock_freq_mhz = 60, \
+        .virtual_channel = 0, \
+        .in_color_format = LCD_COLOR_PIXEL_FORMAT_RGB888, \
+        .num_fbs = NUM_FBS, \
+        .video_timing = { \
+            .h_size = 1920, \
+            .v_size = 515, \
+            .hsync_back_porch = 80, \
+            .hsync_pulse_width = 32, \
+            .hsync_front_porch = 48, \
+            .vsync_back_porch = 17, \
+            .vsync_pulse_width = 5, \
+            .vsync_front_porch = 3, \
+        }, \
+        .flags.disable_lp = true, \
+    }
 #ifdef __cplusplus
 }
 #endif
