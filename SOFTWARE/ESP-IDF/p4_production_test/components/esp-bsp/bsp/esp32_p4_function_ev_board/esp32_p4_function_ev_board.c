@@ -746,7 +746,11 @@ esp_err_t bsp_display_new_with_handles(const bsp_display_config_t *config, bsp_l
         vendor_config.mipi_config.dpi_config = &dpi_configs[4];
         memcpy(&vendor_config.video_timing, &video_timings[4], sizeof(esp_lcd_panel_lt8912b_video_timing_t));
         break;
-
+    case BSP_HDMI_RES_1920x515:
+        ESP_LOGI(TAG, "HDMI configuration for 1920x515@60HZ");
+        vendor_config.mipi_config.dpi_config = &dpi_configs[5];
+        memcpy(&vendor_config.video_timing, &video_timings[5], sizeof(esp_lcd_panel_lt8912b_video_timing_t));
+        break;
         default:
         ESP_LOGE(TAG, "Unsupported display type (%d)", config->hdmi_resolution);
     }
@@ -1010,6 +1014,8 @@ lv_display_t *bsp_display_start(void)
             .hdmi_resolution = BSP_HDMI_RES_1280x800,
 #elif CONFIG_BSP_LCD_HDMI_1920x1080_30HZ
             .hdmi_resolution = BSP_HDMI_RES_1920x1080,
+#elif CONFIG_BSP_LCD_HDMI_1920x515_60HZ
+            .hdmi_resolution = BSP_HDMI_RES_1920x515,
 #endif
 #else
             .hdmi_resolution = BSP_HDMI_RES_NONE,
